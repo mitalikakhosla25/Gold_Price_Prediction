@@ -11,23 +11,23 @@ This project was carried out in Phases:
 
 The following regression models were trained:
 
-1. Linear Regression
+- Linear Regression
 
 Used as baseline model for comparison.
 
-2. Decision Tree Regressor
+- Decision Tree Regressor
 
 Used for capturing non-linear patterns.
 
-3. Random Forest Regressor
+-  Random Forest Regressor
 
 Used for stronger accuracy and reduced overfitting.
 
-4. XGBoost Regressor
+- XGBoost Regressor
 
 Used as final advanced boosting model for best performance.
 
-Hyperparameter Tuning
+# Hyperparameter Tuning
 
 Manual Hyperparameter Tuning was performed for:
 
@@ -36,12 +36,11 @@ Random Forest
 XGBoost
 
 Parameters tuned:
-
-n_estimators
-max_depth
-min_samples_split
-min_samples_leaf
-learning_rate
+1. n_estimators
+2. max_depth
+3. min_samples_split
+4. min_samples_leaf
+5. learning_rate
 
 This significantly improved model performance.
 
@@ -49,13 +48,10 @@ Model Evaluation Metrics
 
 Since this is a Regression Problem, the following metrics were used:
 
-MAE (Mean Absolute Error)
-MSE (Mean Squared Error)
-RMSE (Root Mean Squared Error)
-R² Score
+MAE (Mean Absolute Error), MSE (Mean Squared Error), RMSE (Root Mean Squared Error), R² Score
 
-Best Model
-XGBoost Regressor 
+# Best Model
+# XGBoost Regressor 
 Final Performance:
 R² Score = 98.72%
 RMSE = 2.63
