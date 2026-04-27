@@ -248,7 +248,7 @@ print("===================================================")
 # ------------------------------------------------------------
 # STEP 1 : IMPORT LIBRARIES
 # ------------------------------------------------------------
-
+!pip install statsmodels
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -594,7 +594,7 @@ print("Shape of y      :", y.shape)
 # ------------------------------------------------------------
 # TRAIN TEST SPLIT FOR FULL FEATURES
 # ------------------------------------------------------------
-
+!pip install xgboost
 print("\n==============================")
 print("TRAIN TEST SPLIT : FULL FEATURES")
 print("==============================")
