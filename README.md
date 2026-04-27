@@ -9,12 +9,4 @@ Built an end-to-end Gold Price Prediction ML project using XGBoost, Random Fores
 
 
 
-# requirements.txt
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-xgboost
-statsmodels
-jupyter
+
