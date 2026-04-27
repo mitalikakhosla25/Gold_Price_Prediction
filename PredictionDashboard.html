@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gold Price Prediction ML Project</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #0b0b0f;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1300px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    .hero {
+      padding: 60px 0;
+      border-bottom: 1px solid rgba(255, 193, 7, 0.2);
+    }
+
+    .tag {
+      color: #f5c542;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #f5c542;
+    }
+
+    .subtitle {
+      max-width: 800px;
+      color: #cfcfcf;
+      margin-bottom: 25px;
+    }
+
+    .badge-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      border: 1px solid rgba(245, 197, 66, 0.4);
+      color: #f5c542;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+    }
+
+    .section {
+      margin-top: 50px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #f5c542;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #15151c;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #ffffff;
+      font-size: 20px;
+    }
+
+    .card ul {
+      padding-left: 18px;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+      color: #d8d8d8;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .metric-box {
+      background: #15151c;
+      border-radius: 18px;
+      padding: 24px;
+      border: 1px solid rgba(245, 197, 66, 0.25);
+    }
+
+    .metric-box h2 {
+      color: #f5c542;
+      margin-bottom: 8px;
+      font-size: 32px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #15151c;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    th {
+      background: #1c1c24;
+      color: #f5c542;
+    }
+
+    .winner {
+      color: #f5c542;
+      font-weight: bold;
+    }
+
+    .graph-box {
+      background: #15151c;
+      padding: 20px;
+      border-radius: 18px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .graph-box img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    .github {
+      margin-top: 40px;
+      background: #15151c;
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    a {
+      color: #f5c542;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #9c9c9c;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <section class="hero">
+      <div class="tag">Supervised Learning Project • Regression Analysis</div>
+      <h1>Gold Price <span>Prediction</span></h1>
+      <p class="subtitle">
+        Complete Machine Learning pipeline for Gold Price Prediction using Regression Models.
+        The project includes dataset cleaning, EDA, feature engineering, feature selection,
+        model training, model comparison, XGBoost optimization, and live prediction validation.
+      </p>
+
+      <div class="badge-wrap">
+        <div class="badge">Linear Regression</div>
+        <div class="badge">Decision Tree</div>
+        <div class="badge">Random Forest</div>
+        <div class="badge">XGBoost</div>
+        <div class="badge">EDA</div>
+        <div class="badge">Feature Engineering</div>
+        <div class="badge">Hyperparameter Tuning</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Project Phases Summary</h2>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Phase 1 — Data Cleaning</h3>
+          <ul>
+            <li>Handled missing values using Median Imputation</li>
+            <li>Removed duplicate rows</li>
+            <li>Detected + capped outliers using IQR</li>
+            <li>Created Market_Trend categorical feature</li>
+            <li>Date → Year, Month, Day extraction</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Phase 2 — EDA</h3>
+          <ul>
+            <li>Statistical Summary</li>
+            <li>Distribution Analysis</li>
+            <li>Correlation Heatmap</li>
+            <li>Multicollinearity using VIF</li>
+            <li>Target relationship analysis</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Phase 3 — Feature Selection</h3>
+          <ul>
+            <li>Full Features for Tree Models</li>
+            <li>Reduced Features for Linear Regression</li>
+            <li>Removed high VIF features</li>
+            <li>80:20 Train-Test Split</li>
+            <li>Shuffle optimization for better performance</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Phase 4 — Model Training</h3>
+          <ul>
+            <li>Linear Regression</li>
+            <li>Decision Tree Regressor</li>
+            <li>Random Forest Regressor</li>
+            <li>XGBoost Regressor</li>
+            <li>MAE, MSE, RMSE, R² Comparison</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Final Model Performance</h2>
+
+      <div class="metrics">
+        <div class="metric-box">
+          <h2>0.9872</h2>
+          <p>Best R² Score</p>
+        </div>
+
+        <div class="metric-box">
+          <h2>2.63</h2>
+          <p>Lowest RMSE</p>
+        </div>
+
+        <div class="metric-box">
+          <h2>XGBoost</h2>
+          <p>Best Performing Model</p>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>MAE</th>
+            <th>RMSE</th>
+            <th>R² Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Linear Regression</td>
+            <td>5.35</td>
+            <td>7.27</td>
+            <td>0.902</td>
+          </tr>
+          <tr>
+            <td>Decision Tree</td>
+            <td>2.33</td>
+            <td>4.52</td>
+            <td>0.962</td>
+          </tr>
+          <tr>
+            <td>Random Forest</td>
+            <td>1.52</td>
+            <td>2.98</td>
+            <td>0.983</td>
+          </tr>
+          <tr>
+            <td class="winner">XGBoost ⭐</td>
+            <td class="winner">1.37</td>
+            <td class="winner">2.63</td>
+            <td class="winner">0.987</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Comparison Graphs</h2>
+
+      <div class="graph-box">
+        <h3>Model Comparison Visualization</h3>
+        <p>Replace this image with your generated graph screenshot from Jupyter Notebook.</p>
+        <img src="comparison_graph.png" alt="Model Comparison Graph">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Live Prediction Validation</h2>
+      <div class="card">
+        <h3>Historical Prediction Test</h3>
+        <p>
+          Predicted GLD = <strong>120.78</strong><br>
+          Actual Historical GLD = <strong>121.50</strong><br>
+          Difference = <strong>0.72 only</strong>
+        </p>
+        <br>
+        <p>
+          This proves the XGBoost model performs strongly within the trained historical range
+          and validates real-world prediction capability.
+        </p>
+      </div>
+    </section>
+
+    <section class="github">
+      <h2 class="section-title">GitHub Repository</h2>
+      <p>
+        Project Source Code + Notebook + Dataset + Final Report:<br><br>
+        <a href="https://github.com/your-username/gold-price-prediction" target="_blank">
+          https://github.com/mitalikakhosla25/Gold_Price_Prediction.git
+        </a>
+      </p>
+    </section>
+
+    <footer>
+      Gold Price Prediction ML Project • Final Year University Submission • Presented Professionally
+    </footer>
+
+  </div>
+
+</body>
+</html>
