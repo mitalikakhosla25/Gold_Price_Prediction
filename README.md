@@ -51,10 +51,10 @@ Since this is a Regression Problem, the following metrics were used:
 MAE (Mean Absolute Error), MSE (Mean Squared Error), RMSE (Root Mean Squared Error), R² Score
 
 # Best Model
-# XGBoost Regressor 
+# Random Forest
 Final Performance:
-R² Score = 98.72%
-RMSE = 2.63
+R² Score = 98.57%
+RMSE = 2.83
 MAE = 1.37
 
 XGBoost achieved the highest R² score and lowest prediction error, making it the most accurate and reliable model for Gold Price Prediction.
